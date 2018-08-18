@@ -1,0 +1,6 @@
+library(dplyr)
+d <- read.csv('expower/household_power_consumption.txt',sep=';')
+ds <- filter(d,Date=='1/2/2007' | Date=='2/2/2007')
+gap <- as.numeric(as.character(ds$Global_active_power))
+gap <- na.omit(gap)
+hist(gap,xlab='Global active power',main="Global active power", col="red")
